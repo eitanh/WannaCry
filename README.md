@@ -1,0 +1,2 @@
+# WannaCry
+WannaCry Scanner
