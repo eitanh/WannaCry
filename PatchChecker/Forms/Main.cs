@@ -28,7 +28,7 @@ namespace PatchChecker
             settings settings = new settings();
             Credentials credentials = settings.GetCredentials();
             List<HotfixInfo> list=patches.getPatches(AppData.Instance.Host,AppData.Instance.credentials.user,AppData.Instance.credentials.password);
-            //table1.DataSource = list;
+            table1.DataSource = list;
         }
 
         private void label3_Click(object sender, EventArgs e)
