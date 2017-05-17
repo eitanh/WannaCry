@@ -27,6 +27,7 @@ namespace PatchChecker
                 
                 username.Text = AppData.Instance.credentials.user;
                 password.Text = AppData.Instance.credentials.password;
+                host.Text = AppData.Instance.Host;
             }
 
         }
@@ -46,6 +47,7 @@ namespace PatchChecker
             this.credentials.password = password.Text;
 
             AppData.Instance.credentials = this.credentials;
+            AppData.Instance.Host = host.Text;
         }
 
     }
