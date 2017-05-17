@@ -12,6 +12,8 @@ namespace PatchChecker
 {
     public partial class settings : Form
     {
+
+        public Credentials credentials=new Credentials("","");
         public settings()
         {
             InitializeComponent();
@@ -20,18 +22,31 @@ namespace PatchChecker
         private void settings_Load(object sender, EventArgs e)
         {
             
-
+            if (AppData.Instance.credentials != null)
+            {
+                
+                username.Text = AppData.Instance.credentials.user;
+                password.Text = AppData.Instance.credentials.password;
+            }
 
         }
         public Credentials GetCredentials()
         {
-            Credentials credentials = new Credentials(username.Text,password.Text);
-            return credentials;
+            return this.credentials;
         }
 
         public String getHost()
         {
             return host.Text;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.credentials.user = username.Text;
+            this.credentials.password = password.Text;
+
+            AppData.Instance.credentials = this.credentials;
+        }
+
     }
 }

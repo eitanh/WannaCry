@@ -27,7 +27,7 @@ namespace PatchChecker
             PatchChecker.Service.Patches patches = new Service.Patches();
             settings settings = new settings();
             Credentials credentials = settings.GetCredentials();
-            List<HotfixInfo> list=patches.getPatches(settings.getHost(), credentials.user, credentials.password);
+            List<HotfixInfo> list=patches.getPatches(AppData.Instance.Host,AppData.Instance.credentials.user,AppData.Instance.credentials.password);
             //table1.DataSource = list;
         }
 
