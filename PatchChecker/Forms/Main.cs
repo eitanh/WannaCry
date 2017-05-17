@@ -18,21 +18,28 @@ namespace PatchChecker
         public Form1()
         {
             InitializeComponent();
+            button2.FlatAppearance.BorderSize = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // MessageBox.Show(username.Text+ " "+password.Text);
             PatchChecker.Service.Patches patches = new Service.Patches();
-            List<HotfixInfo> list=patches.getPatches("192.168.59.131", username.Text, password.Text);
-            table1.DataSource = list;
+            settings settings = new settings();
+            Credentials credentials = settings.GetCredentials();
+            List<HotfixInfo> list=patches.getPatches(settings.getHost(), credentials.user, credentials.password);
+            //table1.DataSource = list;
         }
 
-        
+        private void label3_Click(object sender, EventArgs e)
+        {
 
+        }
 
-
-
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            settings settings = new settings();
+            settings.Show();
+        }
     }
 }
